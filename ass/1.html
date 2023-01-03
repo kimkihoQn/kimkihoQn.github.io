@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var j = JSON.parse(localStorage.getItem('nums'));
+        let rkq1, rkq2, rkq3;
+
+        document.write('<table border="1">');
+                    document.write('<tr>');
+                        document.write('<td>');
+                            document.write('작성자');                          
+                        document.write('</td>');
+                        document.write('<td>');
+                            document.write('제목');
+                        document.write('</td>');
+                        document.write('<td>');
+                            document.write('내용');
+                        document.write('</td>');
+                    document.write('</tr>');
+                    //여기 반복시켜주셈
+                    for(var i = 0; i <= j; i++){
+                        rkq1 = localStorage.getItem("key1_" + i);
+                        rkq2 = localStorage.getItem("key2_" + i);
+                        rkq3 = localStorage.getItem("key3_" + i);
+                        document.write('<tr>');
+                            document.write('<td>');
+                                document.write(rkq1);                          
+                            document.write('</td>');
+                            document.write('<td>');
+                                document.write(rkq2);
+                            document.write('</td>');
+                            document.write('<td>');
+                                document.write(rkq3);
+                            document.write('</td>');
+                        document.write('</tr>');
+                    }
+                    //여기까지
+                document.write('</table>');
+                console.log(j);
+    </script>
+    
+    <button onclick="window.close();">닫기</button>
+    <button onclick="localStorage.clear(); window.close();">모든 데이터 삭제 및 창 닫기</button>
+</body>
+</html>

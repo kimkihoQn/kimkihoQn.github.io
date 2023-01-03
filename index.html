@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title></title>
+   <script type="text/javascript">
+      let scr = JSON.parse(localStorage.getItem('nums'));
+      console.log(scr);
+      if (scr === null) {
+         scr = parseInt(0);
+         console.log(scr);
+      }
+      var arr1, arr2, arr3; 
+      // localStorage.clear();
+</script>
+</head>
+<body>
+   <div id="main">
+      <table border="2">
+         <form class="asas">
+            <ul class="sel">
+               <tr>
+                    <td>작성자</td>
+                    <td>
+                        <input type="text" class="writer" maxlength="255" autocomplete="off" placeholder="작성자 입력" onfocus="this.value=''">
+                    </td>
+               </tr>
+                    <td>제목</td>
+                    <td colspan="2">
+                        <input type="text" class="title" maxlength="255" autocomplete="off" placeholder="제목입력" onfocus="this.value=''">
+                    </td>   
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td colspan="2">
+                        <center>
+                           <textarea class="Contents" autocomplete="off" style="width:300px;height:100px;font-size:20px; resize: none;" onfocus="this.value=''">
+                              내용입력
+                           </textarea>
+                        </center>
+                     </td>
+                </tr>
+                 <tr>
+                    <td colspan="2">
+                        <center>
+                           <button type="submit">등록</button>
+                           <button type="reset">리셋</button></form>
+                           <button onclick="window.open('./ass/1.html')">정보확인하기</button>
+                           <button onclick="localStorage.clear();">모든 데이터 삭제</button>
+                        </center>
+                    </td>
+                </tr>
+            </ul>
+         
+      </table>
+   </div>
+   <!-- 등록 JS -->
+   <script type="text/javascript">
+        var aaa = document.querySelector('#aaasss');
+        const form = document.querySelector('.asas');
+        const input = document.querySelector('.title');
+        const input_ = document.querySelector('.Contents');
+        const engine = document.querySelector('.writer');
+
+      form.addEventListener('submit', event => {
+         event.preventDefault();
+         arr1 = engine.value;
+         arr2 = input.value;
+         arr3 = input_.value;
+         if (arr1 === '' || arr2 === '' || arr3 === ''){
+            alert('빈칸이 있습니다.');
+         }else if(arr1 !== '' && arr2 !== '' && arr3 !== ''){
+            localStorage.setItem("key1_"+[scr], arr1);
+            localStorage.setItem("key2_"+[scr], arr2);
+            localStorage.setItem("key3_"+[scr], arr3);
+            localStorage.setItem('nums', JSON.stringify([scr]));
+            console.log(scr);
+            scr += 1;
+         }
+         alert('등록되었습니다.');
+      });
+   </script>
+</body>
+</html>
